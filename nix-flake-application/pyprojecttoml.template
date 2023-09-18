@@ -26,6 +26,9 @@ homepage = "@homepage@"
 packages = [{include = "@package@"}]
 
 [tool.poetry.dependencies]
+cachetools = "^@cachetools@"
+dbus-next = "^@dbusNext@"
+grpcio = "^@grpcio@"
 python = "^@pythonMajorMinor@"
 pythoneda-artifact-nix-flake = "^@pythonedaArtifactNixFlake@"
 pythoneda-artifact-nix-flake-infrastructure = "^@pythonedaArtifactNixFlakeInfrastructure@"
@@ -42,6 +45,7 @@ pythoneda-shared-pythoneda-application = "^@pythonedaSharedPythonedaApplication@
 pythoneda-shared-pythoneda-banner = "^@pythonedaSharedPythonedaBanner@"
 pythoneda-shared-pythoneda-domain = "^@pythonedaSharedPythonedaDomain@"
 pythoneda-shared-pythoneda-infrastructure = "^@pythonedaSharedPythonedaInfrastructure@"
+requests = "^@requests@"
 stringtemplate3 = "^@stringtemplate3@"
 
 [build-system]
