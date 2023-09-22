@@ -26,9 +26,9 @@ homepage = "@homepage@"
 packages = [{include = "@package@"}]
 
 [tool.poetry.dependencies]
-cachetools = "^@cachetools@"
 dbus-next = "^@dbusNext@"
 grpcio = "^@grpcio@"
+joblib = "^@joblib@"
 python = "^@pythonMajorMinor@"
 pythoneda-artifact-nix-flake = "^@pythonedaArtifactNixFlake@"
 pythoneda-artifact-nix-flake-infrastructure = "^@pythonedaArtifactNixFlakeInfrastructure@"
