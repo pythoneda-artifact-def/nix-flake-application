@@ -19,52 +19,51 @@
 {
   description = "Application layer of pythoneda-artifact/nix-flake";
   inputs = rec {
-    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
+    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     pythoneda-artifact-nix-flake = {
-      url =
-        "github:pythoneda-artifact/nix-flake-artifact/0.0.1a9?dir=nix-flake";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
+      url = "github:pythoneda-artifact/nix-flake-artifact/0.0.2?dir=nix-flake";
     };
     pythoneda-artifact-nix-flake-infrastructure = {
-      url =
-        "github:pythoneda-artifact/nix-flake-infrastructure-artifact/0.0.1a5?dir=nix-flake-infrastructure";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-artifact-nix-flake.follows =
         "pythoneda-artifact-nix-flake";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
+      url =
+        "github:pythoneda-artifact/nix-flake-infrastructure-artifact/0.0.2?dir=nix-flake-infrastructure";
     };
     pythoneda-shared-pythoneda-application = {
-      url =
-        "github:pythoneda-shared-pythoneda/application-artifact/0.0.1a32?dir=application";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
+      url =
+        "github:pythoneda-shared-pythoneda/application-artifact/0.0.2?dir=application";
     };
     pythoneda-shared-pythoneda-banner = {
-      url = "github:pythoneda-shared-pythoneda/banner/0.0.1a19";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      url = "github:pythoneda-shared-pythoneda/banner/0.0.2";
     };
     pythoneda-shared-pythoneda-domain = {
-      url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a43?dir=domain";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
+      url =
+        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.2?dir=domain";
     };
   };
   outputs = inputs:
@@ -73,7 +72,7 @@
       let
         org = "pythoneda-artifact";
         repo = "nix-flake-application";
-        version = "0.0.1a4";
+        version = "0.0.2";
         sha256 = "sha256-53jX4nAxPPOupDtO1H+htMsfwgZHrgWUMIa8Vrsjf4w=";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.artifact.nix_flake.application";
