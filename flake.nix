@@ -1,8 +1,8 @@
-# nix-flake-application/flake.nix
+# flake.nix
 #
 # This file packages pythoneda-artifact/nix-flake-application as a Nix flake.
 #
-# Copyright (C) 2023-today rydnr's pythoneda-artifact/nix-flake-application-artifact
+# Copyright (C) 2023-today rydnr's pythoneda-artifact-def/nix-flake-application
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      url = "github:pythoneda-artifact/nix-flake-artifact/0.0.2?dir=nix-flake";
+      url = "github:pythoneda-artifact-def/nix-flake/0.0.6";
     };
     pythoneda-artifact-nix-flake-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
@@ -39,8 +39,7 @@
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      url =
-        "github:pythoneda-artifact/nix-flake-infrastructure-artifact/0.0.2?dir=nix-flake-infrastructure";
+      url = "github:pythoneda-artifact-def/nix-flake-infrastructure/0.0.11";
     };
     pythoneda-shared-pythoneda-application = {
       inputs.flake-utils.follows = "flake-utils";
@@ -49,21 +48,19 @@
         "pythoneda-shared-pythoneda-banner";
       inputs.pythoneda-shared-pythoneda-domain.follows =
         "pythoneda-shared-pythoneda-domain";
-      url =
-        "github:pythoneda-shared-pythoneda/application-artifact/0.0.2?dir=application";
+      url = "github:pythoneda-shared-pythoneda-def/application/0.0.14";
     };
     pythoneda-shared-pythoneda-banner = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
-      url = "github:pythoneda-shared-pythoneda/banner/0.0.2";
+      url = "github:pythoneda-shared-pythoneda-def/banner/0.0.27";
     };
     pythoneda-shared-pythoneda-domain = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
-      url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.2?dir=domain";
+      url = "github:pythoneda-shared-pythoneda-def/domain/0.0.3";
     };
   };
   outputs = inputs:
@@ -247,6 +244,11 @@
             pythoneda-artifact-nix-flake-application-python311;
           pythoneda-artifact-nix-flake-application-python38 =
             shared.devShell-for {
+              banner = "${
+                  pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38
+                }/bin/banner.sh";
+              extra-namespaces = "";
+              nixpkgs-release = nixpkgsRelease;
               package =
                 packages.pythoneda-artifact-nix-flake-application-python38;
               python = pkgs.python38;
@@ -254,21 +256,15 @@
                 pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
-            };
-          pythoneda-artifact-nix-flake-application-raw-python38 =
-            shared.raw-devShell-for {
-              package =
-                packages.pythoneda-artifact-nix-flake-application-python38;
-              python = pkgs.python38;
-              pythoneda-shared-pythoneda-banner =
-                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38;
-              pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
+              inherit archRole layer org pkgs repo space;
             };
           pythoneda-artifact-nix-flake-application-python39 =
             shared.devShell-for {
+              banner = "${
+                  pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39
+                }/bin/banner.sh";
+              extra-namespaces = "";
+              nixpkgs-release = nixpkgsRelease;
               package =
                 packages.pythoneda-artifact-nix-flake-application-python39;
               python = pkgs.python39;
@@ -276,21 +272,15 @@
                 pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
-            };
-          pythoneda-artifact-nix-flake-application-raw-python39 =
-            shared.raw-devShell-for {
-              package =
-                packages.pythoneda-artifact-nix-flake-application-python39;
-              python = pkgs.python39;
-              pythoneda-shared-pythoneda-banner =
-                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39;
-              pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
+              inherit archRole layer org pkgs repo space;
             };
           pythoneda-artifact-nix-flake-application-python310 =
             shared.devShell-for {
+              banner = "${
+                  pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310
+                }/bin/banner.sh";
+              extra-namespaces = "";
+              nixpkgs-release = nixpkgsRelease;
               package =
                 packages.pythoneda-artifact-nix-flake-application-python310;
               python = pkgs.python310;
@@ -298,21 +288,15 @@
                 pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
-            };
-          pythoneda-artifact-nix-flake-application-raw-python310 =
-            shared.raw-devShell-for {
-              package =
-                packages.pythoneda-artifact-nix-flake-application-python310;
-              python = pkgs.python310;
-              pythoneda-shared-pythoneda-banner =
-                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310;
-              pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
+              inherit archRole layer org pkgs repo space;
             };
           pythoneda-artifact-nix-flake-application-python311 =
             shared.devShell-for {
+              banner = "${
+                  pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python311
+                }/bin/banner.sh";
+              extra-namespaces = "";
+              nixpkgs-release = nixpkgsRelease;
               package =
                 packages.pythoneda-artifact-nix-flake-application-python311;
               python = pkgs.python311;
@@ -320,18 +304,7 @@
                 pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python311;
               pythoneda-shared-pythoneda-domain =
                 pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python311;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
-            };
-          pythoneda-artifact-nix-flake-application-raw-python311 =
-            shared.raw-devShell-for {
-              package =
-                packages.pythoneda-artifact-nix-flake-application-python311;
-              python = pkgs.python311;
-              pythoneda-shared-pythoneda-banner =
-                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python311;
-              pythoneda-shared-pythoneda-domain =
-                pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python311;
-              inherit archRole layer nixpkgsRelease org pkgs repo space;
+              inherit archRole layer org pkgs repo space;
             };
         };
         packages = rec {
