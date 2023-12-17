@@ -164,7 +164,7 @@
 
             format = "pyproject";
 
-            nativeBuildInputs = with python.pkgs; [ pip pkgs.jq poetry-core ];
+            nativeBuildInputs = with python.pkgs; [ pip poetry-core ];
             propagatedBuildInputs = with python.pkgs; [
               pythoneda-artifact-nix-flake
               pythoneda-artifact-nix-flake-infrastructure
@@ -201,7 +201,6 @@
               popd
               mkdir $out/dist $out/bin
               cp dist/${wheelName} $out/dist
-              jq ".url = \"$out/dist/${wheelName}\"" $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json > temp.json && mv temp.json $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json
               cp /build/$sourceRoot/entrypoint.sh $out/bin/${entrypoint}.sh
               chmod +x $out/bin/${entrypoint}.sh
             '';
