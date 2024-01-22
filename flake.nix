@@ -28,7 +28,7 @@
         "pythoneda-shared-banner";
       inputs.pythoneda-shared-domain.follows =
         "pythoneda-shared-domain";
-      url = "github:pythoneda-artifact-def/nix-flake/0.0.24";
+      url = "github:pythoneda-artifact-def/nix-flake/0.0.25";
     };
     pythoneda-artifact-nix-flake-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
@@ -39,7 +39,7 @@
         "pythoneda-shared-banner";
       inputs.pythoneda-shared-domain.follows =
         "pythoneda-shared-domain";
-      url = "github:pythoneda-artifact-def/nix-flake-infrastructure/0.0.30";
+      url = "github:pythoneda-artifact-def/nix-flake-infrastructure/0.0.31";
     };
     pythoneda-shared-application = {
       inputs.flake-utils.follows = "flake-utils";
@@ -48,7 +48,7 @@
         "pythoneda-shared-banner";
       inputs.pythoneda-shared-domain.follows =
         "pythoneda-shared-domain";
-      url = "github:pythoneda-shared-def/application/0.0.44";
+      url = "github:pythoneda-shared-def/application/0.0.45";
     };
     pythoneda-shared-banner = {
       inputs.flake-utils.follows = "flake-utils";
@@ -69,8 +69,8 @@
       let
         org = "pythoneda-artifact";
         repo = "nix-flake-application";
-        version = "0.0.6";
-        sha256 = "1sllh0gbbl9083sc14h0pxra4vf9axcafz3jd5bca4rdmy6kvdxc";
+        version = "0.0.7";
+        sha256 = "1mis356x66spp3dlfra6c69j82wsbaq2yydxjh0da23464gsxplv";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.artifact.nix_flake.application";
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
