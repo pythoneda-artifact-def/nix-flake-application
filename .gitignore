@@ -1,9 +1,2 @@
-bin/
-dist/
-lib/
-lib64
-.nix_flake_git_repo_cache/
-__pycache__
-pyvenv.cfg
 result
-result
+deps.txt
