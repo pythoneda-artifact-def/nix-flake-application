@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 {
-  description = "Application layer of pythoneda-artifact/nix-flake";
+  description = "Nix flake for pythoneda-artifact/nix-flake-application";
   inputs = rec {
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     nixos.url = "github:NixOS/nixpkgs/24.05";
@@ -209,14 +209,7 @@
           };
       in rec {
         apps = rec {
-          default = pythoneda-artifact-nix-flake-application-default;
-          pythoneda-artifact-nix-flake-application-default =
-            pythoneda-artifact-nix-flake-application-python312;
-          pythoneda-artifact-nix-flake-application-python38 = shared.app-for {
-            package =
-              self.packages.${system}.pythoneda-artifact-nix-flake-application-python38;
-            inherit entrypoint;
-          };
+          default = pythoneda-artifact-nix-flake-application-python312;
           pythoneda-artifact-nix-flake-application-python39 = shared.app-for {
             package =
               self.packages.${system}.pythoneda-artifact-nix-flake-application-python39;
@@ -237,29 +230,16 @@
               self.packages.${system}.pythoneda-artifact-nix-flake-application-python312;
             inherit entrypoint;
           };
+          pythoneda-artifact-nix-flake-application-python313 = shared.app-for {
+            package =
+              self.packages.${system}.pythoneda-artifact-nix-flake-application-python313;
+            inherit entrypoint;
+          };
         };
         defaultApp = apps.default;
         defaultPackage = packages.default;
         devShells = rec {
-          default = pythoneda-artifact-nix-flake-application-default;
-          pythoneda-artifact-nix-flake-application-default =
-            pythoneda-artifact-nix-flake-application-python312;
-          pythoneda-artifact-nix-flake-application-python38 =
-            shared.devShell-for {
-              banner = "${
-                  pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38
-                }/bin/banner.sh";
-              extra-namespaces = "";
-              nixpkgs-release = nixpkgsRelease;
-              package =
-                packages.pythoneda-artifact-nix-flake-application-python38;
-              python = pkgs.python38;
-              pythoneda-shared-pythonlang-banner =
-                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-              pythoneda-shared-pythonlang-domain =
-                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-              inherit archRole layer org pkgs repo space;
-            };
+          default = pythoneda-artifact-nix-flake-application-python312;
           pythoneda-artifact-nix-flake-application-python39 =
             shared.devShell-for {
               banner = "${
@@ -324,25 +304,25 @@
                 pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
               inherit archRole layer org pkgs repo space;
             };
+          pythoneda-artifact-nix-flake-application-python313 =
+            shared.devShell-for {
+              banner = "${
+                  pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313
+                }/bin/banner.sh";
+              extra-namespaces = "";
+              nixpkgs-release = nixpkgsRelease;
+              package =
+                packages.pythoneda-artifact-nix-flake-application-python313;
+              python = pkgs.python313;
+              pythoneda-shared-pythonlang-banner =
+                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+              pythoneda-shared-pythonlang-domain =
+                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
+              inherit archRole layer org pkgs repo space;
+            };
         };
         packages = rec {
-          default = pythoneda-artifact-nix-flake-application-default;
-          pythoneda-artifact-nix-flake-application-default =
-            pythoneda-artifact-nix-flake-application-python312;
-          pythoneda-artifact-nix-flake-application-python38 =
-            pythoneda-artifact-nix-flake-application-for {
-              python = pkgs.python38;
-              pythoneda-artifact-nix-flake =
-                pythoneda-artifact-nix-flake.packages.${system}.pythoneda-artifact-nix-flake-python38;
-              pythoneda-artifact-nix-flake-infrastructure =
-                pythoneda-artifact-nix-flake-infrastructure.packages.${system}.pythoneda-artifact-nix-flake-infrastructure-python38;
-              pythoneda-shared-pythonlang-application =
-                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python38;
-              pythoneda-shared-pythonlang-banner =
-                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python38;
-              pythoneda-shared-pythonlang-domain =
-                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python38;
-            };
+          default = pythoneda-artifact-nix-flake-application-python312;
           pythoneda-artifact-nix-flake-application-python39 =
             pythoneda-artifact-nix-flake-application-for {
               python = pkgs.python39;
@@ -398,6 +378,20 @@
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python312;
               pythoneda-shared-pythonlang-domain =
                 pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python312;
+            };
+          pythoneda-artifact-nix-flake-application-python313 =
+            pythoneda-artifact-nix-flake-application-for {
+              python = pkgs.python313;
+              pythoneda-artifact-nix-flake =
+                pythoneda-artifact-nix-flake.packages.${system}.pythoneda-artifact-nix-flake-python313;
+              pythoneda-artifact-nix-flake-infrastructure =
+                pythoneda-artifact-nix-flake-infrastructure.packages.${system}.pythoneda-artifact-nix-flake-infrastructure-python313;
+              pythoneda-shared-pythonlang-application =
+                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python313;
+              pythoneda-shared-pythonlang-banner =
+                pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
+              pythoneda-shared-pythonlang-domain =
+                pythoneda-shared-pythonlang-domain.packages.${system}.pythoneda-shared-pythonlang-domain-python313;
             };
         };
       });
