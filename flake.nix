@@ -113,7 +113,7 @@
               authors = builtins.concatStringsSep ","
                 (map (item: ''"${item}"'') maintainers);
               desc = description;
-              inherit homepage pname pythonpackage version;
+              inherit homepage pname pythonpackage version package;
               pythonMajorMinor = pythonMajorMinorVersion;
               pythonedaArtifactNixFlake = pythoneda-artifact-nix-flake.version;
               pythonedaArtifactNixFlakeInfrastructure =
@@ -136,7 +136,7 @@
             bannerTemplate = pkgs.substituteAll {
               project_name = pname;
               file_path = banner_file;
-              inherit banner_class org repo;
+              inherit banner_class org repo package;
               tag = version;
               pescio_space = space;
               arch_role = archRole;
@@ -151,7 +151,7 @@
               arch_role = archRole;
               hexagonal_layer = layer;
               nixpkgs_release = nixpkgsRelease;
-              inherit homepage maintainers org python repo version;
+              inherit homepage maintainers org python repo version package;
               pescio_space = space;
               python_version = pythonMajorMinorVersion;
               pythoneda_shared_banner = pythoneda-shared-pythonlang-banner;
